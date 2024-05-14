@@ -1,22 +1,68 @@
-console.log(5 == 5);//loose equality, values
-console.log(5 === 5);// strict equality, type and values
+const arr = [1,2,3,4];
+
+const doubleed = arr.map(double);
+
+function double(num){
+    return num * 2;
+}
+
+console.log(doubleed);
+
+const newArr = [1,2,3,4];
+const newDoubled = newArr.map(num=> num * 2);// anonymous function but more efficient code.
+
+
+console.log(newDoubled);
 console.log();
 
-console.log(5 == '5');//implicit type coercion
-console.log(5 === '5');
 
-
-console.log(Number(false));
-
-console.log(Number('abc'));
-console.log(NaN == NaN);// Not a number will never be equal to anything else including itself
+const destArr = [1,2,3,4];
+const [firstValue, secondValue,...rest] = destArr;// Can print values on a single line
+const first = arr[0];
+const second = arr[1];
+console.log(first, second);
+console.log(rest);// Gives us an array of the rest of the values
+console.log(firstValue,secondValue);
 console.log()
 
-console.log(null == null);
-console.log(null == undefined);// returns true
+const person = {
+    name: "Conner",
+    website: "FrontEndExpert",
+};
 
-console.log({} == {}); // returns false
-// not necessarily the EXACT SAME object;
-// yes both objects but not the same object;
+const { name: firstName } = person;
+console.log(firstName);
+console.log();
 
+//Destructuring when passing an object as a parameter to a function
+function printName({name}){
+    console.log(name);
+}
+printName(person);
+console.log();
 
+// spread operator
+const spreadArr = [1,99,333,24];
+const Spread2j = [5,6,7];
+
+function add(x,y){
+    console.log(x+y);
+}
+
+add(...spreadArr);
+
+// template literals
+
+const templateName = "Alex";
+
+console.log("Hello " + templateName);
+console.log(`Hello ${templateName} ${1 + 3}`);//better for multiple variables
+
+// Short circuit evaluation
+const shouldRunCode = true;
+
+function logWorld(){
+    console.log("Hello World");
+}
+
+shouldRunCode && logWorld();// Only runs if the left side is true
